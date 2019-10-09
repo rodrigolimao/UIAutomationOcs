@@ -75,9 +75,11 @@ public class ExampleDatesOCS {
 		WebElement threeGrams = driver.findElement(By.xpath("//span[contains(text(),'3.5g')]"));
 		
 		//checking if 1gram is available
-		if (!oneGram.isSelected()) {
+		if (oneGram.isDisplayed()) {
 			oneGram.click();
-		} threeGrams.click();
+		} else {
+			threeGrams.click();
+		}
 		
 		//add to the bag
 		driver.findElement(By.xpath("//*[@id=\'product_2108889368396_pdp\']/button")).click();
@@ -145,8 +147,8 @@ public class ExampleDatesOCS {
 		driver.switchTo().frame(3);
 		driver.findElement(By.xpath("//*[@id=\"verification_value\"]")).sendKeys("899");
 		
-//		driver.findElement(By.xpath("//*[@id=\"expiry_month\"]")).sendKeys("092029");
-//		driver.findElement(By.xpath("//*[@id=\"verification_value\"]")).sendKeys("890");		
+		driver.switchTo().defaultContent();
+		
 		
 		
 	}
